@@ -5,11 +5,14 @@
 
     <data>
         <!--导入-->
-        <import type="com.example.lulu.databindingdemo.User"/>
+        <!--<import type="com.example.lulu.databindingdemo.User"/>-->
         <!--变量-->
+        <!--<variable-->
+        <!--name="users"-->
+        <!--type="java.util.List&lt;User&gt;"/>-->
         <variable
-            name="users"
-            type="java.util.List&lt;User&gt;"/>
+            name="adapter"
+            type="android.widget.BaseAdapter"/>
     </data>
 
     <LinearLayout
@@ -19,8 +22,13 @@
         android:gravity="center"
         android:orientation="horizontal"
         tools:context="com.example.lulu.databindingdemo.MainActivity">
-        <include layout="@layout/user_layout" app:user="@{ users[0] }"/>
-        <include layout="@layout/user_layout" app:user="@{ users[1] }"/>
+        <!--<include layout="@layout/user_layout" app:user="@{ users[0] }"/>-->
+        <!--<include layout="@layout/user_layout" app:user="@{ users[1] }"/>-->
+        <!--所有的控件的set方法, 只要去掉set就可以直接用-->
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{adapter}"/>
     </LinearLayout>
 </layout>
 
