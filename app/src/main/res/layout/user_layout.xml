@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--变量-->
+        <variable
+            name="user"
+            type="com.example.lulu.databindingdemo.User"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.example.lulu.databindingdemo.MainActivity">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user.clickName}"
+            android:text="@{user.nickName + `(` + user.name + `)`}"
+            android:textColor="@{user.vip ? 0xffff0000 : 0xff000000}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onLongClick="@{user.longClickNickName}"
+            android:text="@{user.nickName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email}"/>
+    </LinearLayout>
+</layout>
+

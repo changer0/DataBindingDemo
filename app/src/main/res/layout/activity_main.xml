@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--导入-->
+        <import type="com.example.lulu.databindingdemo.User"/>
+        <!--变量-->
+        <variable
+            name="users"
+            type="java.util.List&lt;User&gt;"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:context="com.example.lulu.databindingdemo.MainActivity">
+        <include layout="@layout/user_layout" app:user="@{ users[0] }"/>
+        <include layout="@layout/user_layout" app:user="@{ users[1] }"/>
+    </LinearLayout>
+</layout>
+
