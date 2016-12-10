@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 
 public class Utils {
     @BindingAdapter({"imageUrl"})
-    public static void loadImage(ImageView imageView, String url) {
+    public void loadImage(ImageView imageView, String url) {
         if (TextUtils.isEmpty(url)) {
             //如果网址为空, 默认加载ic_launcher
             imageView.setImageResource(R.mipmap.ic_launcher);

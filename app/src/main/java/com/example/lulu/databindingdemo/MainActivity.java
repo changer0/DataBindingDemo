@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
         //使用DataBinding的方式载入 在使用DataBinding的形式写完布局文件后会默认形成下面这样的类
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        DataBindingUtil.setDefaultComponent(new MyComponent());
 //        User user = new User();
 //        user.setName("用户名");
 //        user.setNickName("昵称");
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         List<User> users = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             User user = new User();
-            user.setName("用户1" + i);
+            user.setName("用户" + i);
             user.setIcon("http://upload-images.jianshu.io/upload_images/3118842-b48fbee83f5a5c8b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240");
             users.add(user);
         }

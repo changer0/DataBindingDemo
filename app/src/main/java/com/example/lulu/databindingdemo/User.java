@@ -1,5 +1,7 @@
 package com.example.lulu.databindingdemo;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import android.view.View;
 import android.widget.Toast;
 
@@ -7,7 +9,7 @@ import android.widget.Toast;
  * Created by lulu on 2016/12/9.
  */
 
-public class User {
+public class User extends BaseObservable{
     private String name;
     private String nickName;
     private String email;
@@ -40,7 +42,7 @@ public class User {
     public void setVip(boolean vip) {
         this.vip = vip;
     }
-
+    @Bindable
     public String getName() {
         return name;
     }
@@ -72,6 +74,13 @@ public class User {
     public boolean longClickNickName(View view) {
         Toast.makeText(view.getContext(), "长按昵称" + nickName, Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+
+    public void click(View view) {
+        setName(getName() + "(已点击)");
+        //刷新某个属性
+        notifyPropertyChanged(BR.name);
     }
 
 }
